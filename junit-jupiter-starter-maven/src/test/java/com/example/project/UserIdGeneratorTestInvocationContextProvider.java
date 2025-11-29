@@ -19,11 +19,13 @@ import java.util.stream.Stream;
 
 public class UserIdGeneratorTestInvocationContextProvider implements TestTemplateInvocationContextProvider {
     @Override
+    @NullMarked
     public boolean supportsTestTemplate(ExtensionContext context) {
         return true;
     }
 
     @Override
+    @NullMarked
     public Stream<? extends TestTemplateInvocationContext> provideTestTemplateInvocationContexts(ExtensionContext context) {
         return Stream.of(
                 createDisabledContext(
@@ -100,6 +102,7 @@ public class UserIdGeneratorTestInvocationContextProvider implements TestTemplat
         }
 
         @Override
+        @NullMarked
         public @Nullable Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
                 throws ParameterResolutionException {
             return userIdGeneratorTestCase;
